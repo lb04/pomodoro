@@ -36,23 +36,24 @@ public:
 
                     if (_kbhit())
                     {
-                        //cout << "tha me emfaniseis pote" << endl;
-                        // int _getch(_kbhit());
-                        int flushall(void);
-                        // sleep(1);
-                        paused = true;
-                        while (paused)
-                        {
-                            cout << _getch();
-                            //cout << "unpause outer" << endl;
-                            while (_kbhit())
-                            {
-                                //cout << "unpause inner" << endl;
-                                paused = false;
-                                break;
+                        // p in ascii is 112
+                        // P in ascii is 80
+                        // an paththike to p kanw to pause
+                        if(getch() == 112 || getch() == 80){
+                            paused = true;
+                            while(paused == true){
+                                cout << '\r' << displayTimeRemaining << flush;
+                                if(getch() == 112 || getch() == 80){
+                                    paused = false;
+                                    break;
+                                    
+                                }
                             }
                             
+                            
                         }
+                        
+                        
                     }
                 }
             }
@@ -84,10 +85,7 @@ public:
 
     void pauseSession()
     {
-        if (checkPause())
-        {
-            std::this_thread::sleep_for(std::chrono::hours(1000));
-        }
+        
     }
 
     void reset()

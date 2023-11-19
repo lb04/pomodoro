@@ -8,10 +8,10 @@ using namespace std;
 
 int main()
 {
-    PomodoroTimer timer;
-    system("clear");
+    PomodoroTimer timer; // I create an object of the class PomodoroTimer by the name timer.
+    system("cls"); // Those two are to start the program with a clear screen and non random numbers.
     timer.reset();
-    timer.displayMenu();
+    timer.displayMenu(); // And here i display the menu.
 
     string input;
     while (true)
